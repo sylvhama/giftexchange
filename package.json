@@ -1,0 +1,19 @@
+{
+  "name": "giftexchange",
+  "version": "1.0.0",
+  "description": "Progressive Web App used for gift exchange at parties.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sylvhama/giftexchange.git"
+  },
+  "author": "Sylvain Hamann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sylvhama/giftexchange/issues"
+  },
+  "homepage": "https://github.com/sylvhama/giftexchange#readme"
+}
