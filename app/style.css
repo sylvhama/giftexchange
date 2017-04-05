@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 300px;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+}
+
+h1, h2, h2, h4, h5, h6 {
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+p {
+  margin: 0;
+}
