@@ -1,13 +1,19 @@
-import renderHeader from './components/header.js';
+import renderHeader from './components/shared/header.js';
+import Register from './components/register.js';
 
 import css from './style/app.css';
 
 const app = document.querySelector('#app'),
       Header = renderHeader('Gift Exchange');
 
-const render = (container, ...components) => {
+const addComponentsTemplate = (container, ...templates) => {
   container.innerHTML = '';
-  components.map((component) => container.insertAdjacentHTML('afterbegin', component));
-}
+  templates.map((template) => container.insertAdjacentHTML('beforeEnd', template));
+};
 
-render(app, Header);
+const addComponentsControllers = (...controllers) => {
+  controllers.map((controller) => controller())
+};
+
+addComponentsTemplate(app, Header, Register.template);
+addComponentsControllers(Register.controller);

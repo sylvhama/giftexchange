@@ -1,4 +1,4 @@
-export default function render(title) {
+export default function Header(title) {
   return `
     <header class="header">
       <h1 class="header__title">
