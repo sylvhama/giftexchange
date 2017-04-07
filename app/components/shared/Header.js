@@ -1,9 +1,11 @@
-export default function Header(title) {
+import css from './header.css';
+
+export default function Header(title, header = 1) {
   return `
     <header class="header">
-      <h1 class="header__title">
+      <h${header} class="header__title">
         ${title}
-      </h1>
+      </h${header}>
     </header>
   `;
 }

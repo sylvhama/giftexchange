@@ -1,0 +1,49 @@
+.input {
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1;
+  display: block;
+}
+
+.label {
+  margin: 0 0 1rem 0;
+  display: inline-block;
+}
+
+.input--checkbox {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  display: inline-block;
+}
+
+.spouse-registration--hidden {
+  display: none;
+}
+
+.in-between {
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.button {
+  margin: 0 auto;
+  border: none;
+  padding: 0.75rem;
+  min-width: 7.5rem;
+  display: block;
+  background-color: #00bcd4;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: ease .25s background-color;
+}
+
+.button:hover {
+  background-color: lightblue;
+}
