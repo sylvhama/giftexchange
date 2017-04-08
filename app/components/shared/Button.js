@@ -1,6 +1,6 @@
 import css from './button.css';
 
-export default function Button({caption, color='#00bcd4'}, ...props) {
+export default function Button({caption, color='#E91E63'}, ...props) {
   let style = '',
       allProps = '';
   if(color !== '') style = `style="color: ${color}"`; 
