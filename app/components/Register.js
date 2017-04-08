@@ -1,3 +1,5 @@
+import Button from './shared/Button.js';
+
 import css from './register.css';
 
 const Register = {
@@ -14,7 +16,7 @@ const Register = {
         <p class="in-between">Or</p>
         <input class="input" name="spousename" type="text" placeholder="Write his/her name here"/>
       </div>
-      <button class="button" type="submit">Register</button>
+      ${Button({caption:'Register'}, {type: 'submit'})}
     </form>
   `,
   controller : () => {

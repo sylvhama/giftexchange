@@ -1,0 +1,27 @@
+.button {
+  margin: 0 auto;
+  border: 2px solid currentColor;
+  padding: 0.75rem;
+  min-width: 7.5rem;
+  display: block;
+  background-color: currentColor;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: ease .25s background-color, ease .25s color;
+}
+
+.button__caption {
+  color: #fff;
+}
+
+.button:hover {
+  border-color: currentColor;
+  background-color: #fff;
+}
+
+.button:hover .button__caption {
+  color: inherit;
+}
