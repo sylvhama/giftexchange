@@ -19,11 +19,15 @@ const Register = {
       ${Button({caption:'Register'}, {type: 'submit'})}
     </form>
   `,
-  controller : () => {
-    const spouseCheckbox = document.querySelector('.spouse-checkbox'),
+  controller : (myFirebase) => {
+    const registerForm = document.querySelector('.register-form'),
+          spouseCheckbox = document.querySelector('.spouse-checkbox'),
           spouseRegistration = document.querySelector('.spouse-registration');
-    spouseCheckbox.addEventListener('change', function(){
+    spouseCheckbox.addEventListener('change', function(event){
       spouseRegistration.classList.toggle('spouse-registration--hidden');
+    });
+    registerForm.addEventListener("submit", function(event) {
+      event.preventDefault();
     });
   }
 }

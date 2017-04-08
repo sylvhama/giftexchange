@@ -1,6 +1,10 @@
+import myFirebase from './firebase.js';
+
 import renderCard from './components/shared/Card.js';
 import renderHeader from './components/shared/Header.js';
 import Register from './components/Register.js';
+
+myFirebase.signInAnonymously();
 
 const app = document.querySelector('#app'),
       Header = renderHeader({title:'Gift Exchange', colored:true}),
@@ -12,9 +16,5 @@ const addComponentsTemplate = (container, ...templates) => {
   templates.map((template) => container.insertAdjacentHTML('beforeEnd', template));
 };
 
-const startComponentsControllers = (...controllers) => {
-  controllers.map((controller) => controller())
-};
-
 addComponentsTemplate(app, Header, RegisterCard);
-startComponentsControllers(Register.controller);
+Register.controller(myFirebase);
