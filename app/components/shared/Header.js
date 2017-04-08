@@ -1,11 +1,11 @@
 import css from './header.css';
 
-export default function Header({title = '', header = 1, colored = false}) {
+export default function Header({title = '', heading = 1, colored = false}) {
   return `
     <header class="header ${colored ? 'header--colored' : ''}">
-      <h${header} class="header__title">
+      <h${heading} class="header__title">
         ${title}
-      </h${header}>
+      </h${heading}>
     </header>
   `;
 }
