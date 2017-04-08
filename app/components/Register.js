@@ -14,7 +14,7 @@ const Register = {
           <option selected="selected">Select your spouse</option>
         </select>
         <p class="in-between">Or</p>
-        <input class="input" name="spousename" type="text" placeholder="Write his/her name here"/>
+        <input class="input" name="spousename" type="text" placeholder="Add his/her name here"/>
       </div>
       ${Button({caption:'Register'}, {type: 'submit'})}
     </form>
@@ -23,7 +23,7 @@ const Register = {
     const spouseCheckbox = document.querySelector('.spouse-checkbox'),
           spouseRegistration = document.querySelector('.spouse-registration');
     spouseCheckbox.addEventListener('change', function(){
-      console.log('fimxme');
+      spouseRegistration.classList.toggle('spouse-registration--hidden');
     });
   }
 }
