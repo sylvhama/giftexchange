@@ -1,0 +1,18 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table__row {
+  border-bottom: 1px #ccc solid;
+}
+
+.table__col {
+  width: 50%;
+  padding: 0.5rem;
+  word-break: break-all;
+}
+
+.table__col--head {
+  text-transform: uppercase;
+}
