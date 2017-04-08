@@ -10,7 +10,7 @@
   line-height: 1;
   text-transform: uppercase;
   cursor: pointer;
-  transition: ease .25s background-color, ease .25s color;
+  transition: ease .25s opacity, ease .25s background-color, ease .25s color;
 }
 
 .button__caption {
@@ -18,10 +18,21 @@
 }
 
 .button:hover {
-  border-color: currentColor;
   background-color: #fff;
 }
 
 .button:hover .button__caption {
   color: inherit;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.button:disabled:hover {
+  background-color: currentColor;
+}
+
+.button:disabled:hover .button__caption {
+  color: #fff;
 }
