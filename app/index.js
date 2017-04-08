@@ -3,8 +3,8 @@ import renderHeader from './components/shared/Header.js';
 import Register from './components/Register.js';
 
 const app = document.querySelector('#app'),
-      Header = renderHeader('Gift Exchange'),
-      HeaderRegisterCard = renderHeader('Registration', 2),
+      Header = renderHeader({title:'Gift Exchange', colored:true}),
+      HeaderRegisterCard = renderHeader({title:'Registration', heading:2}),
       RegisterCard = renderCard(Register.template, HeaderRegisterCard);
 
 const addComponentsTemplate = (container, ...templates) => {

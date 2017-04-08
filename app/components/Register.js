@@ -5,9 +5,9 @@ const Register = {
     <form class="register-form">
       <input class="input" name="name" type="text" placeholder="Write your name" required />
       <label class="label">
-        <input class="input input--checkbox" type="checkbox" name="spouse" value="yes" /> I came with my spouse.
+        <input class="input input--checkbox spouse-checkbox" type="checkbox" name="spouse" value="yes" /> I came with my spouse.
       </label>
-      <div class="spouse-registration">
+      <div class="spouse-registration spouse-registration--hidden">
         <select class="input spouse-selector">
           <option selected="selected">Select your spouse</option>
         </select>
@@ -18,7 +18,11 @@ const Register = {
     </form>
   `,
   controller : () => {
-    const form = document.querySelector('.register-form');
+    const spouseCheckbox = document.querySelector('.spouse-checkbox'),
+          spouseRegistration = document.querySelector('.spouse-registration');
+    spouseCheckbox.addEventListener('change', function(){
+      console.log('fimxme');
+    });
   }
 }
 
