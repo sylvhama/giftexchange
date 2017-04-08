@@ -9,7 +9,7 @@ const config = {
 firebase.initializeApp(config);
 
 const signInAnonymously = () => {
-  firebase.auth().signInAnonymously().catch(function(error) {
+  firebase.auth().signInAnonymously().catch((error) => {
     const errorCode = error.code,
           errorMessage = error.message;
     console.error(errorCode, errorMessage);
@@ -17,8 +17,15 @@ const signInAnonymously = () => {
   });
 };
 
+const addParticipant = (id, name) => {
+  return firebase.database().ref().child(id).push({
+    name: name
+  })
+}
+
 const myFirebase = {
   signInAnonymously: () => signInAnonymously(),
+  addParticipant: (year, name) => addParticipant(year, name),
 }
 
 export default myFirebase;
