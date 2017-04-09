@@ -5,7 +5,7 @@ const template = `
     <thead>
       <tr class="table__row">
         <th class="table__col table__col--head">Name</th>
-        <th class="table__col table__col--head">Has picked</th>
+        <th class="table__col table__col--head">Has drawn</th>
       </tr>
     </thead>
     <tbody class="participant-list">
@@ -14,10 +14,13 @@ const template = `
 `;
 
 const updateList = (list) => {
-  //If database is empty
-  if(list === null) return false;
   const participantList = document.querySelector('.participant-list');
   let template = '';
+  //If database is empty
+  if(list === null) {
+    participantList.innerHTML = '';
+    return false;
+  }
   Object.keys(list).map((key) => {
     let spouse = '';
     if(list[key].spouse !== '') spouse = `<small>spouse: ${list[key].spouse}</small>`;
@@ -27,6 +30,7 @@ const updateList = (list) => {
           ${list[key].name} ${spouse}
         </td>
         <td class="table__col">
+          ${list[key].drawn} 
         </td>
       </tr>
     `

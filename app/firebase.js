@@ -21,18 +21,22 @@ const addParticipant = (id, person) => firebase.database().ref().child(id).push(
 
 const updateParticipant = (id, key, person) => firebase.database().ref(`${id}/${key}`).set(person);
 
-const listenToChanges = (callback) => {
-  const today = new Date(),
-        year = today.getFullYear(),
-        yearRef = firebase.database().ref(year);
-  yearRef.on('value', (snapshot) => callback(snapshot));
+const resetList = (id) => firebase.database().ref(`${id}`).set(null);
+
+const listenToChanges = (id, callback) => {
+  const idRef = firebase.database().ref(id);
+  idRef.on('value', (snapshot) => callback(snapshot));
 };
+
+const getList = (id) => firebase.database().ref(id).once('value');
 
 const myFirebase = {
   signInAnonymously: () => signInAnonymously(),
-  addParticipant: (year, name) => addParticipant(year, name),
+  addParticipant: (id, person) => addParticipant(id, person),
   updateParticipant: (id, key, person) => updateParticipant(id, key, person),
-  listenToChanges: (callback) => listenToChanges(callback),
+  resetList: (id) => resetList(id),
+  listenToChanges: (id, callback) => listenToChanges(id, callback),
+  getList: (id) => getList(id),
 }
 
 export default myFirebase;

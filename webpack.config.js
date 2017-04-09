@@ -1,10 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: {
+    main: './app/index.js',
+    admin: './app/admin.js'
+  }, 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   devtool: 'eval-source-map',
   module: {

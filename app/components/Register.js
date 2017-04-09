@@ -19,7 +19,7 @@ const template = `
   </form>
 `;
 
-const init = (myFirebase) => {
+const init = (myFirebase, year) => {
   //Get elements
   const registerForm = document.querySelector('.register-form'),
         spouseCheckbox = registerForm.querySelector('.spouse-checkbox'),
@@ -27,29 +27,36 @@ const init = (myFirebase) => {
         mainName = registerForm.querySelector('.main-name'),
         spouseSelector = registerForm.querySelector('.spouse-selector'),
         spouseName = registerForm.querySelector('.spouse-name'),
-        submit = registerForm.querySelector('button[type=submit]'),
-        today = new Date(),
-        year = today.getFullYear();
+        submit = registerForm.querySelector('button[type=submit]');
   spouseCheckbox.addEventListener('change', function(event){
     spouseRegistration.classList.toggle('spouse-registration--hidden');
   });
-  registerForm.addEventListener("submit", function(event) {
+  registerForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const promises = [];
     let spouse = '';
-    submit.setAttribute("disabled", "");
+    submit.setAttribute('disabled', '');
     //If the spouse has been selected
     if(spouseSelector.value !== 'default') {
       const key = spouseSelector.value;
       spouse = spouseSelector.options[spouseSelector.selectedIndex].text;
-      promises.push(Promise.resolve(myFirebase.updateParticipant(year, key, {name:spouse, spouse:mainName.value})));
+      promises.push(Promise.resolve(myFirebase.updateParticipant(year, key, {name:spouse, 
+                                                                             spouse:mainName.value,
+                                                                             drawn: '',
+                                                                             hasBeenDrawn: false})));
     //Else if the spouse has been added manually    
     }else if(spouseName.value !== '') {
       spouse = spouseName.value;
-      promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:spouse, spouse:mainName.value})));
+      promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:spouse, 
+                                                                     spouse:mainName.value,
+                                                                     drawn: '',
+                                                                     hasBeenDrawn: false})));
     }
     //We add the new person
-    promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:mainName.value, spouse: spouse})));
+    promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:mainName.value,
+                                                                   spouse: spouse,
+                                                                   drawn: '',
+                                                                   hasBeenDrawn: false})));
     //We execute all the promises
     Promise.all(promises)
     .then(() => {
@@ -59,10 +66,10 @@ const init = (myFirebase) => {
       spouseName.value = '';
       spouseCheckbox.checked = false;
       spouseRegistration.classList.add('spouse-registration--hidden');
-      submit.removeAttribute("disabled");
+      submit.removeAttribute('disabled');
     })
     .catch((error) => {
-      submit.removeAttribute("disabled");
+      submit.removeAttribute('disabled');
       console.error(error);
       alert('An error occured, contact Mr. Smith!')
     });
@@ -90,7 +97,7 @@ const updateList = (list) => {
 
 const Register = {
   template : template,
-  init : (myFirebase) => init(myFirebase),
+  init : (myFirebase, year) => init(myFirebase, year),
   updateList : (list) => updateList(list)
 }
 
