@@ -12,7 +12,9 @@ export function getYear() {
 
 //Used to sort an array of people by name
 export function orderByName(a, b) {
-  if(a.name < b.name) return -1;
-  if(a.name > b.name) return 1;
+  const nameA = a.name.toLowerCase(),
+        nameB = b.name.toLowerCase();
+  if(nameA < nameB) return -1;
+  if(nameA > nameB) return 1;
   return 0;
 }
