@@ -1,11 +1,15 @@
 # dependencies
 /node_modules
 
+# Firebase dependencies
+/functions
+
 # testing
 /test
 
 # production
-/build
+/public/main.js
+/public/admin.js
 
 # misc
 .DS_Store

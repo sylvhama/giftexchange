@@ -6,7 +6,7 @@ module.exports = {
     admin: './app/admin.js'
   }, 
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'public'),
     filename: '[name].js'
   },
   devtool: 'eval-source-map',
