@@ -1,3 +1,4 @@
+import {orderByName} from '../common.js';
 import css from './list.css';
 
 const template = `
@@ -21,16 +22,22 @@ const updateList = (list) => {
     participantList.innerHTML = '';
     return false;
   }
-  Object.keys(list).map((key) => {
+  const table = Object.keys(list).map((key) => { return {
+    name: list[key].name,
+    spouse: list[key].spouse,
+    drawn: list[key].drawn
+  }});
+  table.sort(orderByName);
+  table.map((person) => {
     let spouse = '';
-    if(list[key].spouse !== '') spouse = `<small>spouse: ${list[key].spouse}</small>`;
+    if(person.spouse !== '') spouse = `<small>spouse: ${person.spouse}</small>`;
     template += `
       <tr class="table__row">
         <td class="table__col">
-          ${list[key].name} ${spouse}
+          ${person.name} ${spouse}
         </td>
         <td class="table__col">
-          ${list[key].drawn} 
+          ${person.drawn} 
         </td>
       </tr>
     `

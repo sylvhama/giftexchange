@@ -9,3 +9,10 @@ export function getYear() {
         year = today.getFullYear();
   return year;  
 }
+
+//Used to sort an array of people by name
+export function orderByName(a, b) {
+  if(a.name < b.name) return -1;
+  if(a.name > b.name) return 1;
+  return 0;
+}
