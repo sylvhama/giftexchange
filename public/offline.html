@@ -49,9 +49,24 @@
       }
     </style>
     <article class="offline">
-      <h2>Gift Exchange</h2>
+      <h2>Offline - Gift Exchange</h2>
       <p>You're offline :(</p>
-      <p>Please retry with a stable network.</p>
+      <p>Please retry with a stable network.</p>     
     </article>
+    <script>
+      var list = JSON.parse(localStorage.getItem('list'));
+      var listArray = Object.keys(list).map(function(key){
+        return {name:list[key].name, drawn:list[key].drawn};
+      });
+      if(listArray.length) {
+        var offline = document.querySelector('.offline');
+        var template = '<br><p>Last saved list (name / drawn name):</p><ul>'
+        listArray.forEach(function(person) {
+          template += '<li>'+person.name+' / '+person.drawn+'</li>'
+        });
+        template += '</ul>'
+        offline.insertAdjacentHTML('beforeEnd', template);
+      }
+    </script>
   </body>
 </html>

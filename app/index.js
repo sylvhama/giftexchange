@@ -20,6 +20,7 @@ myFirebase.signInAnonymously()
   Register.init(myFirebase, year);
   const callback = (snapshot) => { 
     const list = snapshot.val();
+    localStorage.setItem('list', JSON.stringify(list));
     Register.updateList(list);
     List.updateList(list);
   };
