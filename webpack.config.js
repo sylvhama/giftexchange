@@ -11,20 +11,26 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015-native-modules']
-        }
-      }
-    ],
     rules: [
       {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            "presets": [
+              ["env", {
+                "targets": {
+                  "browsers": ["last 2 versions", "safari >= 7"]
+                }
+              }]
+            ]
+          }
+        }
       }
     ],
   },
