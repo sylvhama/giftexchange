@@ -1,3 +1,4 @@
+import {toArrayPeople} from '../common.js';
 import Button from './shared/Button.js';
 
 const template = `
@@ -16,16 +17,7 @@ const init = (myFirebase, year) => {
         //If database is empty
         if(values===null) return false;
         //Create an array of people containing everyone
-        const everyone = Object.keys(values)
-              .map((key) => {
-                return {
-                          key:key,
-                          name:values[key].name,
-                          spouse:values[key].spouse,
-                          drawn:values[key].drawn,
-                          hasBeenDrawn: values[key].hasBeenDrawn
-                       }
-              });
+        const everyone = toArrayPeople(values);
         //We make a second list where we ignore people who already drawn someone
         const notDrawn = everyone.filter((person) => person.drawn === '');
         //We draw a name for each person who never have drawn

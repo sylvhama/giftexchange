@@ -1,4 +1,4 @@
-import {orderByName} from '../common.js';
+import {orderByName, toArrayPeople} from '../common.js';
 import css from './list.css';
 
 const template = `
@@ -22,11 +22,7 @@ const updateList = (list) => {
     participantList.innerHTML = '';
     return false;
   }
-  const table = Object.keys(list).map((key) => { return {
-    name: list[key].name,
-    spouse: list[key].spouse,
-    drawn: list[key].drawn
-  }});
+  const table = toArrayPeople(list);
   table.sort(orderByName);
   table.map((person) => {
     let spouse = '';
