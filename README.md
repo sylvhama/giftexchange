@@ -29,7 +29,7 @@ It correctly bundles `main.js` and `admin.js` in production mode and optimizes t
 
 ## Database
 
-I've used the realtime database provided by [Firebase](https://firebase.google.com/). It allows users to receive live updates without reloading their page thanks to web sockets.  I invite you to watch this [YouTube video](https://www.youtube.com/watch?v=zbGm0Oh3VMw) if you are unfamiliar with Firebase.
+I've used the realtime database provided by [Firebase](https://firebase.google.com/docs/database/). It allows users to receive live updates without reloading their page thanks to web sockets.  I invite you to watch this [YouTube video](https://www.youtube.com/watch?v=zbGm0Oh3VMw) if you are unfamiliar with Firebase.
 You can create your own project on Firebase website and update the config in `app/firebase.js` or simply keep mind.
 
 ## Routing
