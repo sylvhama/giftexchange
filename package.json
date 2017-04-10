@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "scripts": {
     "e2e-test": "nightwatch",
-    "unit-test": "mocha --compilers js:babel-core/register tests/unit.js",
+    "unit-test": "mocha --compilers js:babel-core/register tests/unit/unit.js",
     "start": "webpack-dev-server --open",
     "build": "webpack -p"
   },
