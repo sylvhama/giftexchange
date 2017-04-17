@@ -1,3 +1,4 @@
+import {escapeHtml} from '../common.js';
 import Button from './shared/Button.js';
 
 import css from './register.css';
@@ -40,21 +41,21 @@ const init = (myFirebase, year) => {
     if(spouseSelector.value !== 'default') {
       const key = spouseSelector.value;
       spouse = spouseSelector.options[spouseSelector.selectedIndex].text;
-      promises.push(Promise.resolve(myFirebase.updateParticipant(year, key, {name:spouse, 
-                                                                             spouse:mainName.value,
+      promises.push(Promise.resolve(myFirebase.updateParticipant(year, key, {name:escapeHtml(spouse), 
+                                                                             spouse:escapeHtml(mainName.value),
                                                                              drawn: '',
                                                                              hasBeenDrawn: false})));
     //Else if the spouse has been added manually    
     }else if(spouseName.value !== '') {
       spouse = spouseName.value;
-      promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:spouse, 
-                                                                     spouse:mainName.value,
+      promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:escapeHtml(spouse), 
+                                                                     spouse:escapeHtml(mainName.value),
                                                                      drawn: '',
                                                                      hasBeenDrawn: false})));
     }
     //We add the new person
-    promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:mainName.value,
-                                                                   spouse: spouse,
+    promises.push(Promise.resolve(myFirebase.addParticipant(year, {name:escapeHtml(mainName.value),
+                                                                   spouse: escapeHtml(spouse),
                                                                    drawn: '',
                                                                    hasBeenDrawn: false})));
     //We execute all the promises
