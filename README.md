@@ -1,7 +1,7 @@
 # Gift Exchange
 
 Progressive Web App used for gift exchange at parties.
-Demo: https://giftexchange.shamann.fr/
+Demo: https://sylvhama-pwa-giftexchange.netlify.com/
 
 ## Available Scripts
 
